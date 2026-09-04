@@ -6,11 +6,27 @@ const respectNote = document.querySelector('#respect-note');
 const celebration = document.querySelector('#celebration');
 const closeCelebration = document.querySelector('#close-celebration');
 const soundToggle = document.querySelector('#sound-toggle');
+const loveSong = document.querySelector('#love-song');
 
 let shyCount = 0;
-let ambientAudio;
+
+function updateMusicControl(isPlaying) {
+  soundToggle.setAttribute('aria-pressed', String(isPlaying));
+  soundToggle.querySelector('.sound-label').textContent = isPlaying ? 'our song is playing' : 'play our song';
+}
+
+function playOurSong() {
+  loveSong.play().then(() => updateMusicControl(true)).catch(() => {
+    // Browsers can block sound until the first tap. Opening the envelope retries it.
+    updateMusicControl(false);
+  });
+}
+
+// Start right away when the browser permits it; otherwise the envelope tap is the first allowed moment.
+playOurSong();
 
 openLetter.addEventListener('click', () => {
+  playOurSong();
   document.body.classList.add('opening-letter');
   letterStage.setAttribute('aria-hidden', 'false');
   window.setTimeout(() => {
@@ -71,38 +87,14 @@ notNowButton.addEventListener('click', () => {
   respectNote.textContent = 'I respect your answer. There is no pressure, only care. ♡';
 });
 
-// A very quiet generated chime: sound is opt-in and never plays automatically.
 soundToggle.addEventListener('click', () => {
-  const label = soundToggle.querySelector('.sound-label');
-  const enabled = soundToggle.getAttribute('aria-pressed') === 'true';
-  if (enabled) {
-    ambientAudio?.close();
-    ambientAudio = undefined;
-    soundToggle.setAttribute('aria-pressed', 'false');
-    label.textContent = 'sound off';
-    return;
-  }
-
-  try {
-    ambientAudio = new (window.AudioContext || window.webkitAudioContext)();
-    const master = ambientAudio.createGain();
-    master.gain.value = 0.025;
-    master.connect(ambientAudio.destination);
-    [220, 277.18, 329.63].forEach((frequency, index) => {
-      const oscillator = ambientAudio.createOscillator();
-      const gain = ambientAudio.createGain();
-      oscillator.type = 'sine';
-      oscillator.frequency.value = frequency;
-      gain.gain.setValueAtTime(0, ambientAudio.currentTime);
-      gain.gain.linearRampToValueAtTime(0.55, ambientAudio.currentTime + 1.5 + index * 0.2);
-      gain.gain.linearRampToValueAtTime(0.001, ambientAudio.currentTime + 8 + index * 1.2);
-      oscillator.connect(gain).connect(master);
-      oscillator.start();
-      oscillator.stop(ambientAudio.currentTime + 10 + index);
-    });
-    soundToggle.setAttribute('aria-pressed', 'true');
-    label.textContent = 'sound on';
-  } catch {
-    label.textContent = 'sound unavailable';
+  if (loveSong.paused) {
+    playOurSong();
+  } else {
+    loveSong.pause();
+    updateMusicControl(false);
   }
 });
+
+loveSong.addEventListener('pause', () => updateMusicControl(false));
+loveSong.addEventListener('play', () => updateMusicControl(true));

@@ -16,12 +16,15 @@
     <div class="page-glow glow-two"></div>
     <div class="grain" aria-hidden="true"></div>
     <div class="stars" aria-hidden="true"></div>
+    <audio id="love-song" loop preload="auto">
+      <source src="media/tere-liye.m4a" type="audio/mp4" />
+    </audio>
 
     <main>
       <section class="opening" id="opening" aria-labelledby="opening-title">
         <p class="eyebrow">a midnight letter, made only for you</p>
         <h1 id="opening-title">There is something<br /><em>I have been meaning to ask.</em></h1>
-        <p class="opening-note">Tap the wax seal to unfold this little universe.</p>
+        <p class="opening-note">A little song is waiting for you. Tap the wax seal to unfold this little universe.</p>
 
         <button class="envelope-button" id="open-letter" type="button" aria-label="Open the letter">
           <span class="envelope" aria-hidden="true">
@@ -32,13 +35,13 @@
             <span class="wax-seal"><span>♥</span></span>
           </span>
         </button>
-        <p class="tap-hint"><span></span> open with a little courage <span></span></p>
+        <p class="tap-hint"><span></span> scroll down, mahh cuty <span></span></p>
       </section>
 
       <section class="letter-stage" id="letter-stage" aria-hidden="true">
         <div class="letter-shell">
-          <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" title="Toggle ambient sound">
-            <span class="sound-icon">♩</span><span class="sound-label">sound off</span>
+          <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" title="Play or pause our song">
+            <span class="sound-icon">♫</span><span class="sound-label">play our song</span>
           </button>
 
           <article class="love-letter" tabindex="-1">
