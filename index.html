@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#190b2b" />
+    <meta name="description" content="A letter written in midnight purple and rose." />
+    <title>A letter for you ✦</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Mono&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+
+    <main>
+      <section class="opening" id="opening" aria-labelledby="opening-title">
+        <p class="eyebrow">a midnight letter, made only for you</p>
+        <h1 id="opening-title">There is something<br /><em>I have been meaning to ask.</em></h1>
+        <p class="opening-note">Tap the wax seal to unfold this little universe.</p>
+
+        <button class="envelope-button" id="open-letter" type="button" aria-label="Open the letter">
+          <span class="envelope" aria-hidden="true">
+            <span class="envelope-back"></span>
+            <span class="envelope-letter"><span>for you</span></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-front"></span>
+            <span class="wax-seal"><span>♥</span></span>
+          </span>
+        </button>
+        <p class="tap-hint"><span></span> open with a little courage <span></span></p>
+      </section>
+
+      <section class="letter-stage" id="letter-stage" aria-hidden="true">
+        <div class="letter-shell">
+          <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" title="Toggle ambient sound">
+            <span class="sound-icon">♩</span><span class="sound-label">sound off</span>
+          </button>
+
+          <article class="love-letter" tabindex="-1">
+            <header class="letter-header">
+              <span class="chapter">Chapter ∞</span>
+              <span class="ornament">✦</span>
+              <span class="chapter">from my heart</span>
+            </header>
+
+            <div class="hero-copy">
+              <p class="to-line">dearest you,</p>
+              <h2>In every version<br />of tomorrow, <em>I choose you.</em></h2>
+              <p class="intro">This is my very small attempt to hold a feeling that has become far too big for ordinary words.</p>
+            </div>
+
+            <section class="memory-section" aria-labelledby="memory-title">
+              <div class="section-kicker"><span></span><p id="memory-title">our little cinema</p><span></span></div>
+              <div class="memory-grid">
+                <figure class="memory-card" data-video-card>
+                  <video class="memory-video" muted loop playsinline preload="metadata" data-video-src="media/our-moment-01.mp4"></video>
+                  <div class="memory-placeholder">
+                    <span class="film-mark">01</span>
+                    <span class="play-mark">▶</span>
+                    <p>a memory waiting<br />to glow</p>
+                  </div>
+                  <figcaption>one of my favourite views</figcaption>
+                </figure>
+                <figure class="memory-card tilted" data-video-card>
+                  <video class="memory-video" muted loop playsinline preload="metadata" data-video-src="media/our-moment-02.mp4"></video>
+                  <div class="memory-placeholder rose">
+                    <span class="film-mark">02</span>
+                    <span class="play-mark">▶</span>
+                    <p>one more piece<br />of us</p>
+                  </div>
+                  <figcaption>a moment I want to replay</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="poem-section" aria-labelledby="poem-title">
+              <p class="section-tag">a few lines I carry</p>
+              <h3 id="poem-title">She is the girl</h3>
+              <div class="poem">
+                <p>Having a charming smile,<br />killing my loneliness,<br />punching my fear with her courage.</p>
+                <p>Having a soothing touch,<br />hugging my happiness,<br />pushing my limits with her voice.</p>
+                <p>Having a herbal kiss,<br />curing the wounds of my heart,<br />treating me like a king with her manners.</p>
+                <p>Having a delightful soul,<br />rebirthing me in her heart,<br />admiring me like her own soul with her words.</p>
+              </div>
+              <p class="poem-final">She is the girl whom I love the most.</p>
+            </section>
+
+            <section class="question-section" id="question" aria-labelledby="question-title">
+              <div class="question-orbit orbit-one"></div><div class="question-orbit orbit-two"></div>
+              <p class="section-tag">the question behind every word</p>
+              <h3 id="question-title">Will you be<br /><em>my girlfriend?</em></h3>
+              <p class="question-note">No pressure, only honesty — but I hope it is a yes. ♡</p>
+              <div class="answer-area" id="answer-area">
+                <button class="answer-button yes-button" id="yes-button" type="button">Yes, with all my heart <span>♥</span></button>
+                <button class="answer-button not-now-button" id="not-now-button" type="button">Not now</button>
+              </div>
+              <p class="respect-note" id="respect-note" aria-live="polite">Your answer matters to me, always.</p>
+            </section>
+
+            <footer class="letter-footer">
+              <span>made under a purple sky</span><span class="footer-heart">♥</span><span>for the one I adore</span>
+            </footer>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="celebration" id="celebration" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="celebration-title">
+      <div class="celebration-stars" aria-hidden="true"></div>
+      <div class="celebration-card">
+        <span class="celebration-spark">✦</span>
+        <p class="section-tag">the beginning of our next chapter</p>
+        <h2 id="celebration-title">You just made<br /><em>my whole universe brighter.</em></h2>
+        <p>I promise to keep choosing you — in the grand moments, the quiet ones, and every ordinary day in between.</p>
+        <span class="big-heart">♥</span>
+        <button class="close-celebration" id="close-celebration" type="button">read it again</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
